@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lec02-Arreglos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <style>
+    table{
+      border: 1px solid #250303; 
+      border-collapse: collapse; 
+    }
+    table td,th{
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+  </style>
+    <div class="m-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" href="arreglos.html">Arreglos Básicos <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="fetch.html">Arreglos Fetch</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <div class="container inputs-comentarios">
+      <label for="id-label">Post ID</label>
+      <input type="text" id="post-id" class="form-control col-md-4 ">
+
+      <label for="id-label">ID</label>
+      <input type="text" id="id" class="form-control col-md-4 ">
+
+      <label for="comentario-label">Nombre</label>
+      <input type="text" id="nombre" class="form-control col-md-4">
+
+      <label for="comentario-label">Email</label>
+      <input type="text" id="email" class="form-control col-md-4">
+
+      <label for="comentario-label">Comentario</label>
+      <input type="text" id="comentario" class="form-control col-md-4">
+    </div>
+
+    <div class="container text-center mb-4">
+      
+      
+      <button id="btnAdd" class="btn btn-primary">Agregar</button>
+      <button id="btnEliminar" class="btn btn-default">Eliminar</button>
+      <button id="bntModificar" class="btn btn-default">Modificar</button>
+  </div>  
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9" id="usuariosDiv">
+          <table id="usuariosDiv2">
+            <tr>
+              <th>Post ID</th>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Cuerpo</th>
+            </tr>
+          </table>
+          
+        </div>
+      </div>
+    </div>  
+
+    <script src="./js/fetch.js"></script>
+</body>
+</html>
