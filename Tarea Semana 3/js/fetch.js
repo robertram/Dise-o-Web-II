@@ -1,68 +1,123 @@
-(function(){
-    cargarDatos=()=>{
+(function () {
+    cargarDatos = () => {
         fetch('https://jsonplaceholder.typicode.com/comments')
-        .then(response => response.json())
-        .then((json) => {
-            json.forEach((e,i)=>{
-                const resultado= document.getElementById('usuariosDiv2');
-                resultado.innerHTML+= 
-                `<tr>
+            .then(response => response.json())
+            .then((json) => {
+                json.forEach((e, i) => {
+                    const resultado = document.getElementById('usuariosDiv2');
+                    resultado.innerHTML +=
+                        `<tr>
                     <td>${e.postId}</td>
                     <td>${e.id}</td>
                     <td>${e.name}</td>
                     <td>${e.email}</td>
                     <td>${e.body}</td>
                 <tr>`;
-                console.log(e.id, e.name);
-            });
-        })
+                    //console.log(e.id, e.name);
+                });
+            })
     }
-    cargarDatos();
 
-    const arr = ["Robert", "Katherine", "Valeria"];
-    const divArregloString = document.getElementById('arreglosString');
+    //Json
+    const jsonbody = {
+        postId: "14",
+        id: "100",
+        name: "Juan",
+        email: "Juan@gmail.com",
+        body: "Hola soy Juan"
+    }; //Guardar los inputs en un json y mostrarlos
+
+    //Array de jsons
+    const arrPersona=[{postId: "14",
+    id: "110",
+    name: "Maria",
+    email: "maria@gmail.com",
+    body: "Hola soy Maria"}, 
+    {postId: "14",
+    id: "100",
+    name: "Jose",
+    email: "jose@gmail.com",
+    body: "Hola soy Jose"}, jsonbody];
+    
+    //inserta en la tabla el array de jsons
+    cargarDatosArrayJSON = (arrPersona) => {
+
+        arrPersona.forEach((e, i) => {
+            const resultado = document.getElementById('usuariosDiv2');
+            resultado.innerHTML +=
+                `<tr>
+                <td>${e.postId}</td>
+                <td>${e.id}</td>
+                <td>${e.name}</td>
+                <td>${e.email}</td>
+                <td>${e.body}</td>
+        <tr>`;
+            
+        });
+    }
+
+    //agrega en la tabla un json
+    cargarDatosJSON = (jsonbody) => {
+
+        const resultado = document.getElementById('usuariosDiv2');
+        resultado.innerHTML +=
+            `<tr>
+                    <td>${jsonbody.postId}</td>
+                    <td>${jsonbody.id}</td>
+                    <td>${jsonbody.name}</td>
+                    <td>${jsonbody.email}</td>
+                    <td>${jsonbody.body}</td>
+                <tr>`;
+        console.log(jsonbody.id, jsonbody.name);
+    }
+    
+    //--------Arreglos--------
+
+    //Botones
     const btnAgregar = document.getElementById('btnAdd');
     const btnEliminar = document.getElementById('btnEliminar');
-    const arrPersona=[{nombre:'Robert', apellido:'Ramírez',ocupacion:'estudiante'}, {nombre:'Katherine', apellido:'Martinez',ocupacion:'desarrolladora'}];
 
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => response.json())
-  .then(json => console.log(json))
-  
     cargar = () => {
-        mostrarArreglo();
         btnAgregar.onclick = agregarElementoArreglo;
         btnEliminar.onclick = eliminarElementoArreglo;
-        btnCambiar.onclick= cambiarColorFondo;
-    }
-    mostrarArreglo = () => {
-        divArregloString.innerHTML = '';
-        var lista = document.createElement('ul');
-        divArregloString.append(lista);
-        //const btnAgregar= document.getElementById('btnAdd');
-
-        /* */
-        arr.forEach((e, i) => { /*elemento, indice, array*/
-            var opcion = document.createElement('li');
-            opcion.innerHTML = e;
-            divArregloString.children[0].append(opcion);
-        });
-        btnAdd.onclick = agregarElementoArreglo;
     }
     agregarElementoArreglo = () => {
-        const nombre = document.getElementById('comentario');
-        arr.push(nombre.value);
-        mostrarArreglo();
-        nombre.value = '';
+        //Inputs a variables
+        const input_post_id = document.getElementById('post-id').value;
+        const input_id = document.getElementById('id').value;
+        const input_name = document.getElementById('nombre').value;
+        const input_email = document.getElementById('email').value;
+        const input_body = document.getElementById('comentario').value;
+
+        var temp = new Object();
+        temp["postId"] = input_post_id;
+        temp["id"] = input_id;
+        temp["name"] = input_name;
+        temp["email"] = input_email;
+        temp["body"] = input_body;
+
+        //Agregar la variable Temp al array de JSONs
+        arrPersona.push(temp);
+        console.log(temp);
+
+        cargarDatosArrayJSON(arrPersona);
+
+        //Eliminar el texto de los inputs. Se puso todo el código en vez de la variable porque con variable no funcionaba
+        document.getElementById('post-id').value = '';
+        document.getElementById('id').value = '';
+        document.getElementById('nombre').value = '';
+        document.getElementById('email').value= '';
+        document.getElementById('comentario').value= '';
     }
     eliminarElementoArreglo = () => {
-        arr.pop();
-        mostrarArreglo();
+        arrPersona.pop();
+        cargarDatosArrayJSON(arrPersona);
     }
-    cambiarColorFondo=()=>{
-        document.body.style.color='red';
-    }
-    cargar();
+
+    cargarDatos(); //Carga el API
+    cargarDatosArrayJSON(arrPersona); //Carga el array de jsons
+    cargar(); //Carga los botones
+
 })()
 
 /*
