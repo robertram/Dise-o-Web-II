@@ -6,25 +6,18 @@
             json.forEach((e,i)=>{
                 const resultado= document.getElementById('usuariosDiv2');
                 resultado.innerHTML+= 
-                `
-                
-                
-                <tr>
+                `<tr>
                     <td>${e.postId}</td>
                     <td>${e.id}</td>
                     <td>${e.name}</td>
                     <td>${e.email}</td>
                     <td>${e.body}</td>
-                <tr>
-                
-                `;
+                <tr>`;
                 console.log(e.id, e.name);
             });
         })
     }
     cargarDatos();
-
-   
 
     const arr = ["Robert", "Katherine", "Valeria"];
     const divArregloString = document.getElementById('arreglosString');
