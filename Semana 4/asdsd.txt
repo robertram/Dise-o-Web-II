@@ -1,0 +1,30 @@
+use mycustomer
+db.createUser({user:'robert', 
+    pwd:'123', 
+    roles:['readWriter', 'dbAdmin']
+    })
+
+
+use RobertDB
+db.Persona.insert({nombre:'Robert Ram'})
+db.Persona.find({})
+
+{
+	nombre:'Pedro', 
+	apellido:'Avendaño'
+},
+{
+	nombre:'Maria', 
+	apellido:'Leon'
+}
+
+
+
+use TRAMSA
+db.Bodegas.insert({CodigoBodega:1, 
+    NombreCorto:'aaa', 
+    Alias:'aaa', 
+    Ubicacion:'SJ',
+    UnidadMedida:'cm', 
+    TipoBodega:'reforzada', 
+    EspacioBodega:'pequeña'})
