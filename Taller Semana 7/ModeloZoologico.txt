@@ -1,0 +1,112 @@
+use Zoologico
+
+db.createCollection('Especie')
+db.createCollection('Zona')
+db.createCollection('Habitat')
+db.createCollection('Itinerario')
+db.createCollection('Cuidador')
+db.createCollection('Guia')
+
+db.Especie.insert(
+{
+'nombre':'Chimpance', 
+'nombreCientifico':'Pan', 
+'descripcion':'Chimpace familia de monos', 
+'habitats': 'Jungla', 
+'zona': 'Parque',
+'cuidador':'Jose Ramirez'
+}
+)
+
+db.Especie.insert({
+'nombre':'Yigüirro', 
+'nombreCientifico':'Turdus grayi', 
+'descripcion':'Pajaro', 
+'habitats': 'Selva', 
+'zona': 'Parque',
+'cuidador':'Esteban Hernandez'
+})
+
+
+db.Habitat.insert({
+'nombre':'Jungla', 
+'clima':'tropical seco', 
+'tipoVegetacion': 'poblado',
+'continentes':'Africa'
+})
+
+db.Habitat.insert({
+'nombre':'Bosque lluvioso', 
+'clima':'tropical lluviosa', 
+'tipoVegetacion': 'poblado',
+'continentes':'America'
+})
+
+
+db.Zona.insert({
+'nombre':'Parque', 
+'Extension':'200m', 
+'Itinerario': '8am-1pm'
+})
+
+db.Zona.insert({
+'nombre':'Piscina', 
+'Extension':'50m', 
+'Itinerario': '10am-3pm'
+})
+
+
+db.Itinerario.insert({
+'codigo':1, 
+'duracionRecorrido':'30min', 
+'logintudItinerario': '300m', 
+'maximoVisitantesAutorizados':10, 
+'numeroEspeciesVisita':2, 
+'zonas': 'piscinas, parque'
+})
+
+db.Itinerario.insert({
+'codigo':2, 
+'duracionRecorrido':'50min', 
+'logintudItinerario': '700m', 
+'maximoVisitantesAutorizados':13, 
+'numeroEspeciesVisita':5, 
+'zonas': 'piscinas, parque, planche'
+})
+
+db.Cuidador.insert({
+'nombre':'Jose Ramirez', 
+'direccion':'San Jose, Costa Rica', 
+'telefono': '7676-2312', 
+'fechaIngreso':'10-02-2019', 
+'especieACargo':'Chimpance', 
+'fechaACargoEspecie': '10-02-2019'
+})
+
+db.Cuidador.insert({
+'nombre':''Esteban Hernandez', 
+'direccion':'Heredia Centro, Costa Rica', 
+'telefono': '8443-2312', 
+'fechaIngreso':'02-01-2020', 
+'especieACargo':'Chimpance', 
+'fechaACargoEspecie': '13-01-2019'
+})
+
+
+
+db.Guia.insert({
+'nombre':'Rodrigo Avendano', 
+'direccion':'Alajuela, Costa Rica', 
+'telefono': '8182-2312', 
+'fechaIngreso':'10-02-2018', 
+'itinerarios':'8am-4pm'
+})
+
+db.Guia.insert({
+'nombre':'Kahterine Alvarado', 
+'direccion':'Escazu, Costa Rica', 
+'telefono': '8333-2312', 
+'fechaIngreso':'11-05-2019', 
+'itinerarios':'8am-7pm'
+})
+
