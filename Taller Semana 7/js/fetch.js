@@ -10,10 +10,9 @@
                         <td><button onclick="eliminarDatos()"><i class="material-icons">
                         delete
                         </i></button></td>
-                    <td>${e.postId}</td>
+                    <td>${e.userId}</td>
                     <td>${e.id}</td>
-                    <td>${e.name}</td>
-                    <td>${e.email}</td>
+                    <td>${e.title}</td>
                     <td>${e.body}</td>
                 <tr>`;
                     document.getElementById("myTable")
@@ -29,23 +28,30 @@
     }
 
 
+   
+
     //document.getElementById("myTable").deleteRow(0);
 
     const arrPersona = [{
-            postId: "14",
+            userId: "14",
             id: "110",
-            name: "Maria",
-            email: "maria@gmail.com",
-            body: "Hola soy Maria"
+            title: "asdas",
+            body: "asdhasdjkhagsdjhgakdgsa"
         },
         {
-            postId: "14",
+            userId: "14",
             id: "100",
-            name: "Jose",
-            email: "jose@gmail.com",
-            body: "Hola soy Jose"
+            title: "asdhasdkjasdad",
+            body: "asdlkasdlalksjh"
         }
     ];
+
+
+    /*
+    "userId": 1,
+    "id": 1,
+    "title": "srit",
+    "body":*/
 
 
     //inserta en la tabla el array de jsons
@@ -58,10 +64,9 @@
                 <td><button onclick="eliminarDatos()"><i class="material-icons">
                         delete
                         </i></button></td>
-                <td>${e.postId}</td>
+                <td>${e.userId}</td>
                 <td>${e.id}</td>
-                <td>${e.name}</td>
-                <td>${e.email}</td>
+                <td>${e.title}</td>
                 <td>${e.body}</td>
         <tr>`;
 
@@ -76,21 +81,18 @@
 
     cargar = () => {
         btnAgregar.onclick = agregarElementoArreglo;
-        btnEliminar.onclick = eliminarElementoArreglo;
     }
     agregarElementoArreglo = () => {
         //Inputs a variables
-        const input_post_id = document.getElementById('post-id').value;
+        const input_post_id = document.getElementById('userId').value;
         const input_id = document.getElementById('id').value;
-        const input_name = document.getElementById('nombre').value;
-        const input_email = document.getElementById('email').value;
-        const input_body = document.getElementById('comentario').value;
+        const input_name = document.getElementById('title').value;
+        const input_body = document.getElementById('body').value;
 
         var temp = new Object();
-        temp["postId"] = input_post_id;
+        temp["userId"] = input_post_id;
         temp["id"] = input_id;
-        temp["name"] = input_name;
-        temp["email"] = input_email;
+        temp["title"] = input_name;
         temp["body"] = input_body;
 
         //Agregar la variable Temp al array de JSONs
@@ -100,11 +102,10 @@
         cargarDatosArrayJSON(arrPersona);
 
         //Eliminar el texto de los inputs. Se puso todo el código en vez de la variable porque con variable no funcionaba
-        document.getElementById('post-id').value = '';
+        document.getElementById('userId').value = '';
         document.getElementById('id').value = '';
-        document.getElementById('nombre').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('comentario').value = '';
+        document.getElementById('title').value = '';
+        document.getElementById('body').value = '';
     }
     eliminarElementoArreglo = () => {
         arrPersona.pop();
@@ -116,20 +117,3 @@
     cargar(); //Carga los botones
 
 })()
-
-/*
-console.log(json)
-Usar objeto y desplegarlo en una tabla 
-Agregar, Eliminar y modificar valores específicos (por id)
-
-Hacer una tabla con los datos del REST API de la direccion  
-https://jsonplaceholder.typicode.com/comments puedo 
-eliminar el comentario que yo 
-desee y debe agregar y modificar
-
-    "postId": 1,
-    "id": 1,
-    "name": "id labore ex et quam laborum",
-    "email": "Eliseo@gardner.biz",
-    "body": "laudantium"
-*/
